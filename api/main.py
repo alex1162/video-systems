@@ -31,22 +31,28 @@ docker = ["docker", "exec", "docker-ffmpeg"]
 async def MP4_video(file: UploadFile):
         
         input_path = f"{MEDIA_FOLDER}/{file.filename}"
-        output_path = f"{MEDIA_FOLDER}/converted_{file.filename}"
-
-        docker = ["docker", "exec", "docker-ffmpeg"]
+        output_path = f"{MEDIA_FOLDER}/converted_{file.filename}.mp4"
 
         P4.MP4_video(input_path, output_path, docker)
 
         return {"status": "success", "output_file": output_path}
 
 @app.post("/MKV_video")
-async def MP4_video(file: UploadFile):
+async def MKV_video(file: UploadFile):
         
         input_path = f"{MEDIA_FOLDER}/{file.filename}"
         output_path = f"{MEDIA_FOLDER}/converted_{file.filename}.mkv"
 
-        docker = ["docker", "exec", "docker-ffmpeg"]
-
         P4.MKV_video(input_path, output_path, docker)
+
+        return {"status": "success", "output_file": output_path}
+
+@app.post("/cut_video")
+async def cut_video(file: UploadFile):
+        
+        input_path = f"{MEDIA_FOLDER}/{file.filename}"
+        output_path = f"{MEDIA_FOLDER}/cut_{file.filename}"
+
+        P4.cut_video(input_path, output_path, docker)
 
         return {"status": "success", "output_file": output_path}
