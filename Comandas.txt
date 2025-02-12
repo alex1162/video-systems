@@ -1,0 +1,20 @@
+MP4, AAC, 60 seconds, H264
+
+docker run --rm -v "C:\Users\ebren\Documents\GitHub\video-systems\media:/data" -it jrottenberg/ffmpeg \
+>>   ffmpeg -i Sabrina_Carpenter_Grammys2025.mp4 -t 60 -c:v libx264 -c:a aac output_2.mp4
+
+MKV
+
+ docker run --rm -v "C:\Users\ebren\Documents\GitHub\video-systems\media:/data" -it jrottenberg/ffmpeg \
+>>   ffmpeg -i Sabrina_Carpenter_Grammys2025.mp4 -t 60 -c:v libvpx-vp9 -b:v 1M -c:a aac -b:a 128k output_MKV.mkv
+
+Docker bento4 pull:
+
+docker pull alfg/bento4
+
+Primer fragmentar:
+
+mp4fragment output_2.mp4 output_2_fragmented.mp4
+
+Després Marlin (que aplica DRM):
+mp4dash --marlin --encryption-key=121a0fca0f1b475b8910297fa8e0a07e:a0a1a2a3a4a5a6a7a8a9aaabacadaeaf output_2_fragmented.mp4
