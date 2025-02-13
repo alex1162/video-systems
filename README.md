@@ -2,8 +2,6 @@
 
 This is a brief manual on how we have performed each task of the practice and the steps to follow to prove its functionality.
 
-**1. Download Docker for command line or for Desktop and install it.**
-
 To do this practice we will use FastAPI. We start by installing fastapi following the steps from its website. We do so by running the command:
 
 *> pip install fastapi*
@@ -26,15 +24,7 @@ We later added a requirements.txt file which contains the libraries that need to
 
 We create a new dockerfile called Dockerfile_ffmpeg. We get ffmpeg from *jrottenberg/ffmpeg:latest*, which already prepares a minimalist Docker image with FFmpeg. As we will need to run continuously this docker in the background (to be able to call the functions that depend on it), we add a command to do so. We also add the directory of the media folder, which will be shared with the api docker and will be used to store the media we will use. 
 
-**2. Now that you have your container ready, download any video you like from the internet (if lack of ideas, try BBB).**
-
-We have downloadoaded the Sabrina Carpenter performance on the Grammys 2025 and saved it in the media folder.
-
-Now we have created the following endpoints
-
-----------------------------------------------------------------
-
-To launch the application, after activating the virtual environment (*.venv\Scripts\activate*) and opening the docker desktop app (without closing it), we run the following command to build the docker-compose file inside the docker folder: 
+To **launch the application**, after activating the virtual environment (*.venv\Scripts\activate*) and opening the docker desktop app (without closing it), we run the following command to build the docker-compose file inside the docker folder: 
 
 *> cd .\docker*
 *> docker-compose up --build*
