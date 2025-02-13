@@ -42,8 +42,3 @@ To launch the application, after activating the virtual environment (*.venv\Scri
 We then can access the application through our browser, using the URL: *localhost:8000*
 
 To stop running the app, we must press Ctrl+C twice (as the ffmpeg docker is running with a command which allows it to not stop, we must force it to do so).
-
-**IMPORTANT:**
-We run the test using pytest.
-If using **pytest** (pip install pytest), import by adding a dot before importing the file: import .first_seminar or import .main
-If just running with python first_seminar_test.py or test_main.py, remove the dot: import first_seminar or import main
