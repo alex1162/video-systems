@@ -24,9 +24,6 @@ def home():
     """
     return html
 
-
-docker = ["docker", "exec", "docker-ffmpeg"]
-
 @app.post("/MP4_video")
 async def MP4_video(file: UploadFile):
         
